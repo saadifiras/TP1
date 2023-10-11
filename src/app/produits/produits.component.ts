@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Produit } from '../modele/produit.model';
+import { ProduitService } from '../services/produit.service';
 
 @Component({
   selector: 'app-produits',
@@ -6,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
   
 })
 export class ProduitsComponent implements OnInit {
+  produits? : Produit[];
+  private produitService= new ProduitService();
+  constructor(){
+  //this.produits=[];
+    
+  }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  this.produits  = this.produitService.listeProduit();
   }
 
   
